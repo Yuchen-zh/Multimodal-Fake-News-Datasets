@@ -1,1 +1,81 @@
+- id: fakeddit
 
+  name: Fakeddit
+
+  year: 2020
+
+  paper:
+    title: ""
+    url: ""
+    venue: ""
+
+  links:
+    project_page: ""
+    official_repository: ""
+    official_download: ""
+    huggingface: ""
+    alternative_download: ""
+
+  task:
+    - fake_news_detection
+
+  language:
+    - en
+
+  domain:
+    - general
+    - social_media
+
+  platform:
+    - reddit
+
+  modalities:
+    - text
+    - image
+    - social_context
+
+  labels:
+    type: multiclass
+    num_classes:
+      - 2
+      - 3
+      - 6
+    names: []
+
+  size:
+    primary_unit: post
+    total: null
+    multimodal_samples: null
+    images: null
+    videos: null
+    claims: null
+    users: null
+
+  splits:
+    train: null
+    validation: null
+    test: null
+
+  collection_period: ""
+
+  annotation:
+    source: ""
+    method: ""
+
+  data_origin:
+    type: real_world
+
+  access:
+    type: direct
+    status: available
+
+  license:
+    name: ""
+    redistribution: unclear
+
+  hosting:
+    host_in_this_repository: false
+
+  last_checked: 2026-08-30
+
+  notes: ""
