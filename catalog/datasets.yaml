@@ -1,81 +1,1132 @@
 - id: fakeddit
-
   name: Fakeddit
-
+  scope: core
   year: 2020
-
   paper:
-    title: ""
-    url: ""
-    venue: ""
-
+    title: 'Fakeddit: A New Multimodal Benchmark Dataset for Fine-grained Fake News Detection'
+    url: https://aclanthology.org/2020.lrec-1.755/
+    venue: LREC
+    venue_full: Language Resources and Evaluation Conference
+    ccf_rank: null
   links:
-    project_page: ""
-    official_repository: ""
-    official_download: ""
-    huggingface: ""
-    alternative_download: ""
-
+    project_page: https://fakeddit.netlify.app/
+    official_repository: https://github.com/entitize/Fakeddit
+    official_download: https://github.com/entitize/Fakeddit#download
+    huggingface: ''
+    alternative_download: ''
   task:
-    - fake_news_detection
-
+  - fake_news_detection
   language:
-    - en
-
+  - en
   domain:
-    - general
-    - social_media
-
+  - general
+  - social_media
   platform:
-    - reddit
-
+  - reddit
   modalities:
-    - text
-    - image
-    - social_context
-
+  - text
+  - image
+  - social_context
+  - metadata
   labels:
-    type: multiclass
+    type: multi_scheme
     num_classes:
-      - 2
-      - 3
-      - 6
+    - 2
+    - 3
+    - 6
     names: []
-
   size:
-    primary_unit: post
-    total: null
+    primary_unit: reddit_submission
+    total: 1063106
     multimodal_samples: null
     images: null
     videos: null
     claims: null
     users: null
-
   splits:
     train: null
     validation: null
     test: null
-
-  collection_period: ""
-
+  collection_period: ''
   annotation:
-    source: ""
-    method: ""
-
+    source: Reddit/subreddit-derived labeling with fine-grained mapping
+    method: weak/derived labels; see paper
   data_origin:
     type: real_world
-
   access:
     type: direct
     status: available
-
   license:
-    name: ""
+    name: unclear
     redistribution: unclear
-
   hosting:
     host_in_this_repository: false
-
-  last_checked: 2026-08-30
-
-  notes: ""
+  last_checked: '2026-08-30'
+  sources:
+    paper: https://aclanthology.org/2020.lrec-1.755/
+    statistics: https://github.com/entitize/Fakeddit
+    access: https://github.com/entitize/Fakeddit
+    license: https://github.com/entitize/Fakeddit
+  notes:
+  - Paper experiments use multimodal-only samples containing both text and image.
+  - Dataset license is not treated as established; link only unless explicit redistribution permission is confirmed.
+- id: fakenewsnet
+  name: FakeNewsNet
+  scope: core
+  year: 2018
+  paper:
+    title: 'FakeNewsNet: A Data Repository with News Content, Social Context and Dynamic Information for Studying Fake News
+      on Social Media'
+    url: https://arxiv.org/abs/1809.01286
+    venue: CoRR
+    venue_full: arXiv / CoRR
+    ccf_rank: null
+  links:
+    project_page: ''
+    official_repository: https://github.com/KaiDMML/FakeNewsNet
+    official_download: https://github.com/KaiDMML/FakeNewsNet/tree/master/dataset
+    huggingface: ''
+    alternative_download: ''
+  task:
+  - fake_news_detection
+  - social_context_modeling
+  language:
+  - en
+  domain:
+  - politics
+  - entertainment
+  platform:
+  - news_web
+  - twitter
+  modalities:
+  - text
+  - image
+  - social_context
+  - metadata
+  labels:
+    type: binary
+    num_classes:
+    - 2
+    names:
+    - fake
+    - real
+  size:
+    primary_unit: news_article
+    total: null
+    version_dependent: true
+    multimodal_samples: null
+    images: null
+    videos: null
+    claims: null
+    users: null
+  splits:
+    train: null
+    validation: null
+    test: null
+  collection_period: ''
+  annotation:
+    source: PolitiFact and GossipCop
+    method: fact-check / publisher-label based
+  data_origin:
+    type: real_world
+  access:
+    type: rebuild
+    status: available
+  license:
+    name: mixed/third-party restrictions
+    redistribution: restricted
+  hosting:
+    host_in_this_repository: false
+  last_checked: '2026-08-30'
+  sources:
+    paper: https://arxiv.org/abs/1809.01286
+    statistics: https://github.com/KaiDMML/FakeNewsNet
+    access: https://github.com/KaiDMML/FakeNewsNet
+    license: https://github.com/KaiDMML/FakeNewsNet
+  notes:
+  - Complete raw dataset is not redistributed by the official repository because of Twitter privacy policies and news-publisher
+    copyrights.
+  - Use version-dependent size reporting rather than a single fixed total.
+- id: weibo
+  name: Weibo Multimodal Rumor Dataset
+  scope: core
+  year: 2017
+  paper:
+    title: Multimodal Fusion with Recurrent Neural Networks for Rumor Detection on Microblogs
+    url: https://doi.org/10.1145/3123266.3123454
+    venue: ACM MM
+    venue_full: ACM International Conference on Multimedia
+    ccf_rank: A
+  links:
+    project_page: ''
+    official_repository: https://github.com/wangzhuang1911/Weibo-dataset
+    official_download: https://github.com/wangzhuang1911/Weibo-dataset
+    huggingface: ''
+    alternative_download: https://github.com/yaqingwang/EANN-KDD18
+  task:
+  - rumor_detection
+  - fake_news_detection
+  language:
+  - zh
+  domain:
+  - general
+  - social_media
+  platform:
+  - weibo
+  modalities:
+  - text
+  - image
+  - social_context
+  - metadata
+  labels:
+    type: binary
+    num_classes:
+    - 2
+    names:
+    - rumor
+    - non_rumor
+  size:
+    primary_unit: post
+    total: 9528
+    fake: 4749
+    real: 4779
+    multimodal_samples: 9528
+    images: null
+    videos: null
+    claims: null
+    users: null
+  splits:
+    train: null
+    validation: null
+    test: null
+  collection_period: 2012-05 to 2016-01
+  annotation:
+    source: Weibo rumor debunking / verified news sources
+    method: platform and news-source verification
+  data_origin:
+    type: real_world
+  access:
+    type: request_or_repository
+    status: available
+  license:
+    name: unclear
+    redistribution: unclear
+  hosting:
+    host_in_this_repository: false
+  last_checked: '2026-08-30'
+  sources:
+    paper: https://doi.org/10.1145/3123266.3123454
+    statistics: https://github.com/wangzhuang1911/Weibo-dataset
+    access: https://github.com/wangzhuang1911/Weibo-dataset
+    license: https://github.com/wangzhuang1911/Weibo-dataset
+  notes:
+  - Classic Chinese multimodal rumor/fake-news dataset; terminology follows the original paper where labels are rumor/non-rumor.
+- id: weibo21
+  name: Weibo21
+  scope: core
+  year: 2021
+  paper:
+    title: 'MDFEND: Multi-domain Fake News Detection'
+    url: https://dl.acm.org/doi/10.1145/3459637.3482139
+    venue: CIKM
+    venue_full: ACM International Conference on Information and Knowledge Management
+    ccf_rank: B
+  links:
+    project_page: ''
+    official_repository: https://github.com/kennqiang/MDFEND-Weibo21
+    official_download: https://github.com/kennqiang/MDFEND-Weibo21
+    huggingface: ''
+    alternative_download: ''
+  task:
+  - multi_domain_fake_news_detection
+  language:
+  - zh
+  domain:
+  - science
+  - military
+  - education
+  - disaster
+  - politics
+  - health
+  - finance
+  - entertainment
+  - society
+  platform:
+  - weibo
+  - news_web
+  modalities:
+  - text
+  - image
+  - metadata
+  labels:
+    type: binary
+    num_classes:
+    - 2
+    names:
+    - fake
+    - real
+  size:
+    primary_unit: news_item
+    total: 9128
+    fake: 4488
+    real: 4640
+    multimodal_samples: null
+    images: null
+    videos: null
+    claims: null
+    users: null
+  splits:
+    train: null
+    validation: null
+    test: null
+  collection_period: 2014-12 to 2021-03
+  annotation:
+    source: multi-domain Chinese news / fact-checking sources
+    method: curated fake/real labels; see paper
+  data_origin:
+    type: real_world
+  access:
+    type: application
+    status: available
+  license:
+    name: unclear
+    redistribution: restricted_or_unclear
+  hosting:
+    host_in_this_repository: false
+  last_checked: '2026-08-30'
+  sources:
+    paper: https://dl.acm.org/doi/10.1145/3459637.3482139
+    statistics: https://github.com/kennqiang/MDFEND-Weibo21
+    access: https://github.com/kennqiang/MDFEND-Weibo21
+    license: https://github.com/kennqiang/MDFEND-Weibo21
+  notes:
+  - Original dataset access requires an application.
+  - Keep later-reported image counts separately if added, with their own provenance.
+- id: mm_covid
+  name: MM-COVID
+  scope: core
+  year: 2020
+  paper:
+    title: 'MM-COVID: A Multilingual and Multimodal Data Repository for Combating COVID-19 Disinformation'
+    url: https://arxiv.org/abs/2011.04088
+    venue: IEEE BigData
+    venue_full: IEEE International Conference on Big Data
+    ccf_rank: null
+  links:
+    project_page: https://zenodo.org/records/4444557
+    official_repository: https://github.com/bigheiniu/MM-COVID
+    official_download: https://zenodo.org/records/4444557
+    huggingface: ''
+    alternative_download: ''
+  task:
+  - cross_lingual_fake_news_detection
+  - fake_news_detection
+  language:
+  - en
+  - es
+  - pt
+  - hi
+  - fr
+  - it
+  domain:
+  - health
+  - covid19
+  platform:
+  - news_web
+  - twitter
+  modalities:
+  - text
+  - social_context
+  - metadata
+  labels:
+    type: binary
+    num_classes:
+    - 2
+    names:
+    - fake
+    - trustworthy
+  size:
+    primary_unit: news_item
+    total: 11173
+    fake: 3981
+    real: 7192
+    multimodal_samples: null
+    images: null
+    videos: null
+    claims: null
+    users: null
+  splits:
+    train: null
+    validation: null
+    test: null
+  collection_period: ''
+  annotation:
+    source: fact-checking websites and trustworthy news sources
+    method: curated veracity labels
+  data_origin:
+    type: real_world
+  access:
+    type: ids_and_repository
+    status: available
+  license:
+    name: record-specific/verify before reuse
+    redistribution: mixed
+  hosting:
+    host_in_this_repository: false
+  last_checked: '2026-08-30'
+  sources:
+    paper: https://arxiv.org/abs/2011.04088
+    statistics: https://arxiv.org/abs/2011.04088
+    access: https://zenodo.org/records/4444557
+    license: https://zenodo.org/records/4444557
+  notes:
+  - Twitter content is represented through IDs to respect platform policy; hydrate/reconstruct through permitted APIs.
+- id: mumin
+  name: MuMiN
+  scope: core
+  year: 2022
+  paper:
+    title: 'MuMiN: A Large-Scale Multilingual Multimodal Fact-Checked Misinformation Social Network Dataset'
+    url: https://dl.acm.org/doi/10.1145/3477495.3531744
+    venue: SIGIR
+    venue_full: ACM SIGIR Conference on Research and Development in Information Retrieval
+    ccf_rank: A
+  links:
+    project_page: https://mumin-dataset.github.io/
+    official_repository: https://github.com/MuMiN-dataset/mumin-build
+    official_download: https://mumin-dataset.github.io/getting_started/
+    huggingface: ''
+    alternative_download: ''
+  task:
+  - misinformation_detection
+  - claim_classification
+  - tweet_classification
+  language:
+  - multilingual_41
+  domain:
+  - mixed
+  platform:
+  - twitter
+  - fact_checking_sites
+  modalities:
+  - text
+  - image
+  - social_context
+  - metadata
+  - knowledge_graph
+  labels:
+    type: binary
+    num_classes:
+    - 2
+    names:
+    - misinformation
+    - factual
+  size:
+    primary_unit: claim
+    total: 12914
+    claims: 12914
+    threads: 26048
+    tweets: 21565018
+    users: 1986354
+    articles: 10920
+    images: 6573
+    videos: null
+    multimodal_samples: null
+  splits:
+    train: null
+    validation: null
+    test: null
+  collection_period: ~10 years
+  annotation:
+    source: 115 fact-checking organizations
+    method: fact-checked verdict aggregation/linking
+  data_origin:
+    type: real_world
+  access:
+    type: build
+    status: available
+  license:
+    name: mixed/third-party restrictions
+    redistribution: restricted
+  hosting:
+    host_in_this_repository: false
+  last_checked: '2026-08-30'
+  sources:
+    paper: https://dl.acm.org/doi/10.1145/3477495.3531744
+    statistics: https://mumin-dataset.github.io/
+    access: https://github.com/MuMiN-dataset/mumin-build
+    license: https://github.com/MuMiN-dataset/mumin-build
+  notes:
+  - Do not report 21.6M tweets as 21.6M independent fake-news samples; primary unit is claim.
+  - Dataset is reconstructed via official tooling and platform-access constraints.
+- id: cosmos
+  name: COSMOS
+  scope: related
+  year: 2023
+  paper:
+    title: 'COSMOS: Catching Out-of-Context Misinformation Using Self-Supervised Learning'
+    url: https://ojs.aaai.org/index.php/AAAI/article/view/26739
+    venue: AAAI
+    venue_full: AAAI Conference on Artificial Intelligence
+    ccf_rank: A
+  links:
+    project_page: ''
+    official_repository: https://github.com/shivangi-aneja/COSMOS
+    official_download: https://github.com/shivangi-aneja/COSMOS#dataset
+    huggingface: ''
+    alternative_download: ''
+  task:
+  - out_of_context_detection
+  language:
+  - en
+  domain:
+  - news
+  - mixed
+  platform:
+  - news_web
+  modalities:
+  - text
+  - image
+  labels:
+    type: binary
+    num_classes:
+    - 2
+    names:
+    - in_context
+    - out_of_context
+  size:
+    primary_unit: image
+    total: 204458
+    images: 204458
+    captions: 454185
+    multimodal_samples: null
+    videos: null
+    claims: null
+    users: null
+  splits:
+    train:
+      images: 161752
+      captions: 360749
+    validation:
+      images: 41006
+      captions: 90036
+    test:
+      images: 1700
+      captions: 3400
+  collection_period: ''
+  annotation:
+    source: news/web image-caption collection
+    method: self-supervised training data + OOC test annotations
+  data_origin:
+    type: real_world_plus_constructed_pairs
+  access:
+    type: application
+    status: available
+  license:
+    name: unclear
+    redistribution: unclear
+  hosting:
+    host_in_this_repository: false
+  last_checked: '2026-08-30'
+  sources:
+    paper: https://ojs.aaai.org/index.php/AAAI/article/view/26739
+    statistics: https://github.com/shivangi-aneja/COSMOS
+    access: https://github.com/shivangi-aneja/COSMOS
+    license: https://github.com/shivangi-aneja/COSMOS
+  notes:
+  - Related OOC dataset rather than a classic fake-news binary dataset.
+- id: newsclippings
+  name: NewsCLIPpings
+  scope: related
+  year: 2021
+  paper:
+    title: 'NewsCLIPpings: Automatic Generation of Out-of-Context Multimodal Media'
+    url: https://aclanthology.org/2021.emnlp-main.545/
+    venue: EMNLP
+    venue_full: Conference on Empirical Methods in Natural Language Processing
+    ccf_rank: B
+  links:
+    project_page: ''
+    official_repository: https://github.com/g-luo/news_clippings
+    official_download: https://github.com/g-luo/news_clippings#data
+    huggingface: ''
+    alternative_download: ''
+  task:
+  - out_of_context_detection
+  language:
+  - en
+  domain:
+  - news
+  platform:
+  - news_web
+  modalities:
+  - text
+  - image
+  labels:
+    type: binary
+    num_classes:
+    - 2
+    names:
+    - pristine
+    - falsified_mismatch
+  size:
+    primary_unit: image_text_pair
+    total: 988283
+    unique_pairs: 988283
+    multimodal_samples: 988283
+    images: null
+    videos: null
+    claims: null
+    users: null
+  splits:
+    train: 816922
+    validation: 85609
+    test: 85752
+  collection_period: ''
+  annotation:
+    source: VisualNews
+    method: automatically generated hard image-caption mismatches
+  data_origin:
+    type: synthetic_pairing
+  access:
+    type: direct_with_dependency
+    status: available
+  license:
+    name: inherits/depends on VisualNews and source media terms
+    redistribution: restricted_or_unclear
+  hosting:
+    host_in_this_repository: false
+  last_checked: '2026-08-30'
+  sources:
+    paper: https://aclanthology.org/2021.emnlp-main.545/
+    statistics: https://github.com/g-luo/news_clippings
+    access: https://github.com/g-luo/news_clippings
+    license: https://github.com/g-luo/news_clippings
+  notes:
+  - Both image and text are generally unmanipulated; falsification is created by mismatching context.
+- id: verite
+  name: VERITE
+  scope: related
+  year: 2024
+  paper:
+    title: 'VERITE: A Robust Benchmark for Multimodal Misinformation Detection Accounting for Unimodal Bias'
+    url: https://link.springer.com/article/10.1007/s13735-023-00317-5
+    venue: IJMIR
+    venue_full: International Journal of Multimedia Information Retrieval
+    ccf_rank: null
+  links:
+    project_page: ''
+    official_repository: https://github.com/stevejpapad/image-text-verification
+    official_download: https://github.com/stevejpapad/image-text-verification
+    huggingface: https://huggingface.co/
+    alternative_download: ''
+  task:
+  - multimodal_misinformation_detection
+  - out_of_context_detection
+  language:
+  - en
+  domain:
+  - news
+  - mixed
+  platform:
+  - news_web
+  modalities:
+  - text
+  - image
+  labels:
+    type: multiclass
+    num_classes:
+    - 3
+    names:
+    - truthful
+    - miscaptioned
+    - out_of_context
+  size:
+    primary_unit: image_text_pair
+    total: 1000
+    truthful: 338
+    miscaptioned: 338
+    out_of_context: 324
+    multimodal_samples: 1000
+    images: null
+    videos: null
+    claims: null
+    users: null
+  splits:
+    train: null
+    validation: null
+    test: 1000
+  collection_period: ''
+  annotation:
+    source: curated news/fact-checking examples
+    method: human-curated balancing to reduce unimodal bias
+  data_origin:
+    type: real_world_curated
+  access:
+    type: research_controlled
+    status: available
+  license:
+    name: research-use/verify current terms
+    redistribution: restricted
+  hosting:
+    host_in_this_repository: false
+  last_checked: '2026-08-30'
+  sources:
+    paper: https://link.springer.com/article/10.1007/s13735-023-00317-5
+    statistics: https://github.com/stevejpapad/image-text-verification
+    access: https://github.com/stevejpapad/image-text-verification
+    license: https://github.com/stevejpapad/image-text-verification
+  notes:
+  - As of July 2026, the official repo states that raw images are available through controlled Hugging Face access using an
+    academic/research institution email.
+- id: dgm4
+  name: DGM⁴
+  scope: related
+  year: 2023
+  paper:
+    title: Detecting and Grounding Multi-Modal Media Manipulation
+    url: https://openaccess.thecvf.com/content/CVPR2023/html/Shao_Detecting_and_Grounding_Multi-Modal_Media_Manipulation_CVPR_2023_paper.html
+    venue: CVPR
+    venue_full: IEEE/CVF Conference on Computer Vision and Pattern Recognition
+    ccf_rank: A
+  links:
+    project_page: ''
+    official_repository: https://github.com/hsrr/DGM4
+    official_download: https://github.com/hsrr/DGM4
+    huggingface: ''
+    alternative_download: ''
+  task:
+  - manipulation_detection
+  - manipulation_grounding
+  language:
+  - en
+  domain:
+  - news
+  platform:
+  - news_web
+  modalities:
+  - text
+  - image
+  labels:
+    type: binary_plus_localization
+    num_classes:
+    - 2
+    names:
+    - pristine
+    - manipulated
+  size:
+    primary_unit: image_text_pair
+    total: 230000
+    pristine: 77426
+    manipulated: 152574
+    multimodal_samples: 230000
+    images: null
+    videos: null
+    claims: null
+    users: null
+  splits:
+    train: null
+    validation: null
+    test: null
+  collection_period: ''
+  annotation:
+    source: VisualNews-derived media
+    method: synthetic multimodal manipulations with region/token grounding
+  data_origin:
+    type: synthetic_manipulation
+  access:
+    type: direct
+    status: available
+  license:
+    name: verify dataset-specific terms
+    redistribution: unclear
+  hosting:
+    host_in_this_repository: false
+  last_checked: '2026-08-30'
+  sources:
+    paper: https://openaccess.thecvf.com/content/CVPR2023/html/Shao_Detecting_and_Grounding_Multi-Modal_Media_Manipulation_CVPR_2023_paper.html
+    statistics: https://github.com/hsrr/DGM4
+    access: https://github.com/hsrr/DGM4
+    license: https://github.com/hsrr/DGM4
+  notes:
+  - Primary CVPR 2023 paper; an extended version was later accepted by IEEE TPAMI.
+- id: factify
+  name: FACTIFY
+  scope: related
+  year: 2022
+  paper:
+    title: 'FACTIFY: A Multi-Modal Fact Verification Dataset'
+    url: https://www.semanticscholar.org/paper/FACTIFY%3A-A-Multi-Modal-Fact-Verification-Dataset-Mishra-Suryavardan/c0532d8d69af3bc0836b88c5aae2ce6166ac5136
+    venue: DE-FACTIFY@AAAI
+    venue_full: Workshop on Multimodal Fact Checking and Hate Speech Detection
+    ccf_rank: null
+  links:
+    project_page: ''
+    official_repository: https://github.com/Shreyashm16/Factify
+    official_download: https://github.com/Shreyashm16/Factify
+    huggingface: ''
+    alternative_download: ''
+  task:
+  - multimodal_fact_checking
+  language:
+  - en
+  domain:
+  - news
+  - mixed
+  platform:
+  - news_web
+  - social_media
+  modalities:
+  - text
+  - image
+  - external_evidence
+  labels:
+    type: multiclass
+    num_classes:
+    - 3
+    names:
+    - support
+    - not_enough_evidence
+    - refute
+  size:
+    primary_unit: claim
+    total: 50000
+    claims: 50000
+    images: 100000
+    multimodal_samples: 50000
+    videos: null
+    users: null
+  splits:
+    train: null
+    validation: null
+    test: null
+  collection_period: ''
+  annotation:
+    source: claim/reference document-image pairs
+    method: multimodal entailment/fact-verification labels
+  data_origin:
+    type: real_world_curated
+  access:
+    type: registration_or_repository
+    status: available
+  license:
+    name: repository code MIT; dataset terms should be verified separately
+    redistribution: unclear
+  hosting:
+    host_in_this_repository: false
+  last_checked: '2026-08-30'
+  sources:
+    paper: https://www.semanticscholar.org/paper/FACTIFY%3A-A-Multi-Modal-Fact-Verification-Dataset-Mishra-Suryavardan/c0532d8d69af3bc0836b88c5aae2ce6166ac5136
+    statistics: https://github.com/Shreyashm16/Factify
+    access: https://github.com/Shreyashm16/Factify
+    license: https://github.com/Shreyashm16/Factify
+  notes:
+  - Workshop publication co-located with AAAI; do not label it CCF-A merely because the workshop is co-located with AAAI.
+  - Repository software license must not be assumed to license all underlying media.
+- id: factify2
+  name: FACTIFY 2
+  scope: related
+  year: 2023
+  paper:
+    title: 'Factify 2: A Multimodal Fake News and Satire News Dataset'
+    url: https://arxiv.org/abs/2304.03897
+    venue: DE-FACTIFY 2@AAAI
+    venue_full: Second Workshop on Multimodal Fact Checking and Hate Speech Detection
+    ccf_rank: null
+  links:
+    project_page: https://defactify.com/2023/factify.html
+    official_repository: https://github.com/surya1701/Factify-2.0
+    official_download: https://defactify.com/2023/factify.html
+    huggingface: ''
+    alternative_download: ''
+  task:
+  - multimodal_fact_checking
+  - satire_detection
+  language:
+  - en
+  domain:
+  - news
+  - mixed
+  platform:
+  - news_web
+  - social_media
+  modalities:
+  - text
+  - image
+  - external_evidence
+  labels:
+    type: fine_grained_multiclass
+    num_classes:
+    - 5
+    names:
+    - multimodal_relation_classes
+  size:
+    primary_unit: instance
+    total: 50000
+    claims: null
+    images: null
+    multimodal_samples: 50000
+    videos: null
+    users: null
+  splits:
+    train: null
+    validation: null
+    test: null
+  collection_period: ''
+  annotation:
+    source: social-media claims + supporting documents
+    method: multimodal relation labeling; includes satire
+  data_origin:
+    type: real_world_curated
+  access:
+    type: registration
+    status: available
+  license:
+    name: repository code Apache-2.0; dataset terms should be verified separately
+    redistribution: unclear
+  hosting:
+    host_in_this_repository: false
+  last_checked: '2026-08-30'
+  sources:
+    paper: https://arxiv.org/abs/2304.03897
+    statistics: https://arxiv.org/abs/2304.03897
+    access: https://defactify.com/2023/factify.html
+    license: https://github.com/surya1701/Factify-2.0
+  notes:
+  - 50,000 new instances are reported for Factify 2; do not blindly add FACTIFY and FACTIFY 2 totals without a version-aware
+    explanation.
+  - Workshop publication is not marked CCF-A.
+- id: fakesv
+  name: FakeSV
+  scope: core
+  year: 2023
+  paper:
+    title: 'FakeSV: A Multimodal Benchmark with Rich Social Context for Fake News Detection on Short Video Platforms'
+    url: https://ojs.aaai.org/index.php/AAAI/article/view/26689
+    venue: AAAI
+    venue_full: AAAI Conference on Artificial Intelligence
+    ccf_rank: A
+  links:
+    project_page: ''
+    official_repository: https://github.com/ICTMCG/FakeSV
+    official_download: https://github.com/ICTMCG/FakeSV#application-for-data-use
+    huggingface: ''
+    alternative_download: ''
+  task:
+  - video_fake_news_detection
+  language:
+  - zh
+  domain:
+  - general
+  - short_video
+  platform:
+  - douyin
+  - kuaishou
+  modalities:
+  - video
+  - audio
+  - text
+  - social_context
+  - metadata
+  labels:
+    type: binary_plus_debunking
+    num_classes:
+    - 2
+    names:
+    - fake
+    - real
+  size:
+    primary_unit: video
+    total: 5538
+    classification_subset: 3654
+    fake: 1827
+    real: 1827
+    debunking: 1884
+    multimodal_samples: 3654
+    images: null
+    videos: 5538
+    claims: null
+    users: null
+  splits:
+    train: null
+    validation: null
+    test: null
+  collection_period: 2017-10 to 2022-02
+  annotation:
+    source: Chinese short-video platforms / fact-checking
+    method: curated authenticity annotations plus debunking videos
+  data_origin:
+    type: real_world
+  access:
+    type: application
+    status: available
+  license:
+    name: data-use agreement
+    redistribution: restricted
+  hosting:
+    host_in_this_repository: false
+  last_checked: '2026-08-30'
+  sources:
+    paper: https://ojs.aaai.org/index.php/AAAI/article/view/26689
+    statistics: https://github.com/ICTMCG/FakeSV
+    access: https://github.com/ICTMCG/FakeSV
+    license: https://github.com/ICTMCG/FakeSV
+  notes:
+  - The primary fake-vs-real subset contains 1,827 fake and 1,827 real videos; later preprocessing in FakingRecipe reports
+    3,624 usable videos.
+  - Data access requires signing an agreement and contacting the authors via an institutional email.
+- id: fakett
+  name: FakeTT
+  scope: core
+  year: 2024
+  paper:
+    title: 'FakingRecipe: Detecting Fake News on Short Video Platforms from the Perspective of Creative Process'
+    url: https://dl.acm.org/doi/10.1145/3664647.3680663
+    venue: ACM MM
+    venue_full: ACM International Conference on Multimedia
+    ccf_rank: A
+  links:
+    project_page: ''
+    official_repository: https://github.com/ICTMCG/FakingRecipe
+    official_download: https://github.com/ICTMCG/FakingRecipe
+    huggingface: ''
+    alternative_download: ''
+  task:
+  - video_fake_news_detection
+  language:
+  - en
+  domain:
+  - mixed
+  - short_video
+  platform:
+  - tiktok
+  modalities:
+  - video
+  - audio
+  - text
+  labels:
+    type: binary
+    num_classes:
+    - 2
+    names:
+    - fake
+    - real
+  size:
+    primary_unit: video
+    total: 1991
+    fake: 1172
+    real: 819
+    events: 286
+    multimodal_samples: 1991
+    images: null
+    videos: 1991
+    claims: null
+    users: null
+  splits:
+    train: 70% chronological
+    validation: 15% chronological
+    test: 15% chronological
+  collection_period: 2019-05 to 2024-03
+  annotation:
+    source: TikTok + Snopes-guided verification
+    method: at least two annotators; see paper/supplement
+  data_origin:
+    type: real_world
+  access:
+    type: application
+    status: available
+  license:
+    name: academic/research-use conditions; verify official application terms
+    redistribution: restricted
+  hosting:
+    host_in_this_repository: false
+  last_checked: '2026-08-30'
+  sources:
+    paper: https://dl.acm.org/doi/10.1145/3664647.3680663
+    statistics: https://dl.acm.org/doi/10.1145/3664647.3680663
+    access: https://github.com/ICTMCG/FakingRecipe
+    license: https://github.com/ICTMCG/FakingRecipe
+  notes:
+  - FakeTT is introduced by the ACM MM 2024 FakingRecipe paper and covers 1,991 English TikTok videos across 286 events.
+- id: m3a
+  name: M³A
+  scope: core
+  year: 2024
+  paper:
+    title: 'M³A: A Multimodal Misinformation Dataset for Media Authenticity Analysis'
+    url: https://doi.org/10.1016/j.cviu.2024.104205
+    venue: CVIU
+    venue_full: Computer Vision and Image Understanding
+    ccf_rank: B
+  links:
+    project_page: ''
+    official_repository: https://github.com/FinalYou/M3A
+    official_download: https://github.com/FinalYou/M3A#data-repository
+    huggingface: ''
+    alternative_download: ''
+  task:
+  - misinformation_detection
+  - out_of_context_detection
+  - deepfake_detection
+  - fact_checking
+  - out_of_distribution_evaluation
+  language:
+  - global_news_outlets_language_coverage_to_verify
+  domain:
+  - politics
+  - technology
+  - entertainment
+  - mixed
+  platform:
+  - news_web
+  modalities:
+  - text
+  - image
+  - audio
+  - video
+  labels:
+    type: fine_grained_multiclass
+    num_classes: null
+    names:
+    - pristine
+    - factual_error
+    - out_of_context
+    - modal_generated
+  size:
+    primary_unit: news_sample
+    total: null
+    genuine: 708000
+    fake_over: 6000000
+    multimodal_samples: null
+    images: null
+    videos: null
+    claims: null
+    users: null
+  splits:
+    train: null
+    validation: null
+    test: null
+  collection_period: ''
+  annotation:
+    source: 60 news outlets + generated misinformation variants
+    method: multiple generation/manipulation strategies with fine-grained labels
+  data_origin:
+    type: mixed
+  access:
+    type: application
+    status: available
+  license:
+    name: paper is CC BY; dataset access governed by Data Access Protocol
+    redistribution: restricted_or_unclear
+  hosting:
+    host_in_this_repository: false
+  last_checked: '2026-08-30'
+  sources:
+    paper: https://doi.org/10.1016/j.cviu.2024.104205
+    statistics: https://github.com/FinalYou/M3A
+    access: https://github.com/FinalYou/M3A
+    license: https://github.com/FinalYou/M3A
+  notes:
+  - The paper is open access under CC BY, but this must not be interpreted as a blanket redistribution license for all underlying
+    third-party news media.
+  - Language coverage should be verified from released metadata before assigning a simplified language label.
