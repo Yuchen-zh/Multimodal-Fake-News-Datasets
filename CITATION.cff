@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If this catalog helps your research, please cite this repository and the original dataset papers you use."
+title: "Multimodal Fake News Datasets"
+type: dataset
+authors:
+  - family-names: "Zhang"
+    given-names: "Yuchen"
+repository-code: "https://github.com/Yuchen-zh/Multimodal-Fake-News-Datasets"
+url: "https://github.com/Yuchen-zh/Multimodal-Fake-News-Datasets"
+license: "NOASSERTION"
