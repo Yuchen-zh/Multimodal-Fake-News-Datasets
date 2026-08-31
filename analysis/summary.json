@@ -1,12 +1,12 @@
 {
-  "dataset_count": 29,
+  "dataset_count": 31,
   "core_count": 21,
-  "related_count": 8,
+  "related_count": 10,
   "years": {
     "2017": 1,
     "2018": 1,
-    "2020": 2,
-    "2021": 3,
+    "2020": 3,
+    "2021": 4,
     "2022": 2,
     "2023": 6,
     "2024": 4,
@@ -14,9 +14,9 @@
     "2026": 6
   },
   "modalities": {
-    "text": 29,
-    "image": 24,
-    "metadata": 10,
+    "text": 31,
+    "image": 26,
+    "metadata": 12,
     "social_context": 9,
     "external_evidence": 6,
     "audio": 4,
@@ -27,7 +27,7 @@
     "reference_article": 1
   },
   "languages": {
-    "en": 21,
+    "en": 23,
     "zh": 6,
     "2_cross_lingual_settings": 1,
     "5_monolingual_languages": 1,
@@ -44,6 +44,7 @@
     "multimodal_fact_checking": 3,
     "out_of_context": 3,
     "video_fake_news": 3,
+    "news_image_captioning": 2,
     "social_media_misinformation": 2,
     "ai_generated_news": 1,
     "creator_intent": 1,

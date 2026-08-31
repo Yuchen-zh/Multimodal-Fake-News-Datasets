@@ -335,21 +335,90 @@
   - image
   tasks:
   - manipulation_detection
-  - manipulation_grounding
-  label_type: binary + localization
+  - manipulation_type_classification
+  - image_manipulation_grounding
+  - text_manipulation_grounding
+  label_type: binary + manipulation type + image/text grounding
   size_total: 230000
   size_unit: image_text_pair
   data_origin: synthetic_manipulation
   access: direct
   license: verify dataset-specific terms
-  note: 77,426 pristine and 152,574 manipulated pairs with region/token grounding.
+  note: 77,426 pristine and 152,574 manipulated news image-text pairs; supports binary detection, manipulation-type classification, image-region grounding, and text-token grounding.
   last_checked: '2026-08-31'
   links:
     paper: https://openaccess.thecvf.com/content/CVPR2023/html/Shao_Detecting_and_Grounding_Multi-Modal_Media_Manipulation_CVPR_2023_paper.html
-    official_repository: https://github.com/hsrr/DGM4
-    official_download: https://github.com/hsrr/DGM4
+    official_repository: https://github.com/rshaojimmy/MultiModal-DeepFake
+    official_download: https://huggingface.co/datasets/rshaojimmy/DGM4
   paper:
     title: Detecting and Grounding Multi-Modal Media Manipulation
+    venue: CVPR
+- id: visualnews
+  name: VisualNews
+  scope: related
+  category: news_image_captioning
+  year: 2021
+  language:
+  - en
+  domain:
+  - news
+  - multi_domain
+  platform:
+  - news_web
+  modalities:
+  - text
+  - image
+  - metadata
+  tasks:
+  - news_image_captioning
+  - image_text_representation_learning
+  label_type: paired image-caption and article text (no veracity label)
+  size_total: 1080595
+  size_unit: image
+  data_origin: real_world
+  access: direct
+  license: source-dependent/verify
+  note: 1,080,595 news images paired with captions and articles from The Guardian, BBC, USA Today, and The Washington Post; includes author and other metadata.
+  last_checked: '2026-08-31'
+  links:
+    paper: https://aclanthology.org/2021.emnlp-main.235/
+    official_repository: https://github.com/FuxiaoLiu/VisualNews-Repository
+    official_download: https://www.cs.rice.edu/~vo9/visualnews/
+  paper:
+    title: 'Visual News: Benchmark and Challenges in News Image Captioning'
+    venue: EMNLP
+- id: nytimes800k
+  name: NYTimes800k
+  scope: related
+  category: news_image_captioning
+  year: 2020
+  language:
+  - en
+  domain:
+  - news
+  platform:
+  - news_web
+  modalities:
+  - text
+  - image
+  - metadata
+  tasks:
+  - news_image_captioning
+  - entity_aware_captioning
+  label_type: paired image-caption and article text (no veracity label)
+  size_total: 792971
+  size_unit: image
+  data_origin: real_world
+  access: request_or_rebuild
+  license: source-dependent/verify
+  note: 792,971 New York Times images with captions from 444,914 articles spanning 14 years; includes image locations within article text and associated visual features.
+  last_checked: '2026-08-31'
+  links:
+    paper: https://arxiv.org/abs/2004.08070
+    official_repository: https://github.com/alasdairtran/transform-and-tell
+    official_download: https://github.com/alasdairtran/transform-and-tell#getting-data
+  paper:
+    title: 'Transform and Tell: Entity-Aware News Image Captioning'
     venue: CVPR
 - id: factify
   name: FACTIFY
