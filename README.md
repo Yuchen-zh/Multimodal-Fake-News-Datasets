@@ -1,163 +1,255 @@
-# Multimodal Fake News Datasets
+# 📰 Multimodal Fake News Datasets
 
-[![Datasets](https://img.shields.io/badge/datasets-15-blue)](#-dataset-table)
-[![CCF-A](https://img.shields.io/badge/CCF--A-primary%20papers-6-red)](#venue--ccf-note)
-[![Languages](https://img.shields.io/badge/languages-English%20%7C%20Chinese%20%7C%20Multilingual-success)](#-coverage)
-[![Status](https://img.shields.io/badge/status-v0.1-orange)](#roadmap)
+> A research-oriented collection of **multimodal fake news / misinformation / rumor / disinformation / fact-checking / out-of-context / media manipulation / AI-generated news datasets**.
 
-> A curated catalog of **multimodal fake-news datasets** and closely related multimodal misinformation resources, organized by language, domain, modality, task, scale, access conditions, and publication venue.
+[![Datasets](https://img.shields.io/badge/Datasets-29-informational)](datasets/datasets.csv)
+[![Core](https://img.shields.io/badge/Core-21-success)](#-core-multimodal-fake-news-datasets)
+[![Related](https://img.shields.io/badge/Related-8-blueviolet)](#-closely-related-benchmarks)
+[![Last checked](https://img.shields.io/badge/Last%20checked-2026--08--31-success)](catalog/datasets.yaml)
 
-This repository is designed for researchers working on **multimodal fake news detection**, including image–text, video–audio–text, social-context, multilingual, multi-domain, out-of-context, fact-checking, and manipulated-media settings.
-
----
-
-## 🌟 Overview
-
-The catalog currently contains **15 representative datasets** selected to cover:
-
-- classic English and Chinese multimodal fake-news detection;
-- multilingual and cross-lingual misinformation;
-- multi-domain Chinese fake news;
-- social-context and graph-based datasets;
-- out-of-context image–text misinformation;
-- multimodal fact verification;
-- manipulated image–text media;
-- Chinese and English short-video fake news;
-- recent large-scale multimodal misinformation resources.
-
-The source of truth is [`catalog/datasets.yaml`](catalog/datasets.yaml). The CSV version is generated from the YAML.
+This repository is mainly intended for research on **Multimodal Fake News Detection (MFND/MMD)** and related topics. It collects **papers, official repositories, dataset access links, and key metadata such as task, modality, language, domain, label type, and data origin**, making it easier to discover, compare, and select suitable datasets.
 
 ---
 
-## 📊 Dataset Table
+## ✨ Highlights
 
-<!-- DATASET_TABLE_START -->
-| Dataset | Venue | Language | Domain | Modalities | Primary task | Scale | Access | Links |
-|---|---|---|---|---|---|---:|---|---|
-| **Fakeddit** | ![LREC](https://img.shields.io/badge/LREC-2020-555555) | en | general, social_media | `T+I+S+M` | fake news detection | 1,063,106 reddit_submission | direct | [📄 Paper](https://aclanthology.org/2020.lrec-1.755/) · [💻 Repo](https://github.com/entitize/Fakeddit) · [📦 Data](https://github.com/entitize/Fakeddit#download) |
-| **FakeNewsNet** | ![CoRR](https://img.shields.io/badge/CoRR-2018-555555) | en | politics, entertainment | `T+I+S+M` | fake news detection | version-dependent | rebuild | [📄 Paper](https://arxiv.org/abs/1809.01286) · [💻 Repo](https://github.com/KaiDMML/FakeNewsNet) · [📦 Data](https://github.com/KaiDMML/FakeNewsNet/tree/master/dataset) |
-| **Weibo Multimodal Rumor Dataset** | ![ACM MM](https://img.shields.io/badge/ACM%20MM-2017-555555) ![CCF](https://img.shields.io/badge/CCF-A-red) | zh | general, social_media | `T+I+S+M` | rumor detection | 9,528 post | request_or_repository | [📄 Paper](https://doi.org/10.1145/3123266.3123454) · [💻 Repo](https://github.com/wangzhuang1911/Weibo-dataset) · [📦 Data](https://github.com/wangzhuang1911/Weibo-dataset) |
-| **Weibo21** | ![CIKM](https://img.shields.io/badge/CIKM-2021-555555) ![CCF](https://img.shields.io/badge/CCF-B-orange) | zh | science, military, education | `T+I+M` | multi domain fake news detection | 9,128 news_item | application | [📄 Paper](https://dl.acm.org/doi/10.1145/3459637.3482139) · [💻 Repo](https://github.com/kennqiang/MDFEND-Weibo21) · [📦 Data](https://github.com/kennqiang/MDFEND-Weibo21) |
-| **MM-COVID** | ![IEEE BigData](https://img.shields.io/badge/IEEE%20BigData-2020-555555) | en, es, pt, hi, fr, it | health, covid19 | `T+S+M` | cross lingual fake news detection | 11,173 news_item | ids_and_repository | [📄 Paper](https://arxiv.org/abs/2011.04088) · [💻 Repo](https://github.com/bigheiniu/MM-COVID) · [📦 Data](https://zenodo.org/records/4444557) |
-| **MuMiN** | ![SIGIR](https://img.shields.io/badge/SIGIR-2022-555555) ![CCF](https://img.shields.io/badge/CCF-A-red) | multilingual_41 | mixed | `T+I+S+M+G` | misinformation detection | 12.9K claims / 21.6M tweets | build | [📄 Paper](https://dl.acm.org/doi/10.1145/3477495.3531744) · [💻 Repo](https://github.com/MuMiN-dataset/mumin-build) · [📦 Data](https://mumin-dataset.github.io/getting_started/) |
-| **COSMOS** | ![AAAI](https://img.shields.io/badge/AAAI-2023-555555) ![CCF](https://img.shields.io/badge/CCF-A-red) | en | news, mixed | `T+I` | out of context detection | 204,458 images / 454,185 captions | application | [📄 Paper](https://ojs.aaai.org/index.php/AAAI/article/view/26739) · [💻 Repo](https://github.com/shivangi-aneja/COSMOS) · [📦 Data](https://github.com/shivangi-aneja/COSMOS#dataset) |
-| **NewsCLIPpings** | ![EMNLP](https://img.shields.io/badge/EMNLP-2021-555555) ![CCF](https://img.shields.io/badge/CCF-B-orange) | en | news | `T+I` | out of context detection | 988,283 image_text_pair | direct_with_dependency | [📄 Paper](https://aclanthology.org/2021.emnlp-main.545/) · [💻 Repo](https://github.com/g-luo/news_clippings) · [📦 Data](https://github.com/g-luo/news_clippings#data) |
-| **VERITE** | ![IJMIR](https://img.shields.io/badge/IJMIR-2024-555555) | en | news, mixed | `T+I` | multimodal misinformation detection | 1,000 image_text_pair | research_controlled | [📄 Paper](https://link.springer.com/article/10.1007/s13735-023-00317-5) · [💻 Repo](https://github.com/stevejpapad/image-text-verification) · [📦 Data](https://github.com/stevejpapad/image-text-verification) |
-| **DGM⁴** | ![CVPR](https://img.shields.io/badge/CVPR-2023-555555) ![CCF](https://img.shields.io/badge/CCF-A-red) | en | news | `T+I` | manipulation detection | 230,000 image_text_pair | direct | [📄 Paper](https://openaccess.thecvf.com/content/CVPR2023/html/Shao_Detecting_and_Grounding_Multi-Modal_Media_Manipulation_CVPR_2023_paper.html) · [💻 Repo](https://github.com/hsrr/DGM4) · [📦 Data](https://github.com/hsrr/DGM4) |
-| **FACTIFY** | ![DE-FACTIFY@AAAI](https://img.shields.io/badge/DE-FACTIFY%40AAAI-2022-555555) | en | news, mixed | `T+I+E` | multimodal fact checking | 50,000 claim | registration_or_repository | [📄 Paper](https://www.semanticscholar.org/paper/FACTIFY%3A-A-Multi-Modal-Fact-Verification-Dataset-Mishra-Suryavardan/c0532d8d69af3bc0836b88c5aae2ce6166ac5136) · [💻 Repo](https://github.com/Shreyashm16/Factify) · [📦 Data](https://github.com/Shreyashm16/Factify) |
-| **FACTIFY 2** | ![DE-FACTIFY 2@AAAI](https://img.shields.io/badge/DE-FACTIFY%202%40AAAI-2023-555555) | en | news, mixed | `T+I+E` | multimodal fact checking | 50,000 instance | registration | [📄 Paper](https://arxiv.org/abs/2304.03897) · [💻 Repo](https://github.com/surya1701/Factify-2.0) · [📦 Data](https://defactify.com/2023/factify.html) |
-| **FakeSV** | ![AAAI](https://img.shields.io/badge/AAAI-2023-555555) ![CCF](https://img.shields.io/badge/CCF-A-red) | zh | general, short_video | `V+A+T+S+M` | video fake news detection | 3,654 fake/real + 1,884 debunking videos | application | [📄 Paper](https://ojs.aaai.org/index.php/AAAI/article/view/26689) · [💻 Repo](https://github.com/ICTMCG/FakeSV) · [📦 Data](https://github.com/ICTMCG/FakeSV#application-for-data-use) |
-| **FakeTT** | ![ACM MM](https://img.shields.io/badge/ACM%20MM-2024-555555) ![CCF](https://img.shields.io/badge/CCF-A-red) | en | mixed, short_video | `V+A+T` | video fake news detection | 1,991 video | application | [📄 Paper](https://dl.acm.org/doi/10.1145/3664647.3680663) · [💻 Repo](https://github.com/ICTMCG/FakingRecipe) · [📦 Data](https://github.com/ICTMCG/FakingRecipe) |
-| **M³A** | ![CVIU](https://img.shields.io/badge/CVIU-2024-555555) ![CCF](https://img.shields.io/badge/CCF-B-orange) | global_news_outlets_language_coverage_to_verify | politics, technology, entertainment | `T+I+A+V` | misinformation detection | 708K genuine / >6M fake | application | [📄 Paper](https://doi.org/10.1016/j.cviu.2024.104205) · [💻 Repo](https://github.com/FinalYou/M3A) · [📦 Data](https://github.com/FinalYou/M3A#data-repository) |
-<!-- DATASET_TABLE_END -->
-
-### Modality legend
-
-`T` = Text · `I` = Image · `V` = Video · `A` = Audio · `S` = Social Context · `E` = External Evidence · `M` = Metadata · `G` = Graph/Knowledge Graph
-
-### Access legend
-
-- **Direct** — official files/repository can be accessed directly.
-- **Application / Controlled** — application, agreement, institutional email, or approval is required.
-- **Registration** — registration/form is required.
-- **IDs** — identifiers are provided; platform content must be reconstructed under the applicable platform policy.
-- **Build / Rebuild** — official scripts/tooling reconstruct the dataset.
-- **Direct\*** — direct annotations are available but another upstream dataset is also required.
+- 📚 Currently includes **29 datasets / benchmarks**: **21 core datasets + 8 closely related datasets**.
+- 🕰️ Covers classic datasets such as **Fakeddit, FakeNewsNet, Weibo, Weibo21, MuMiN, and FakeSV**.
+- 🚀 Continuously includes recent datasets and benchmarks such as **FineFake, AMG, MMFakeBench, MFND, MM-Health, VLDBench, DriftBench, DeceptionDecoded, ReMMDBench, and FakeVE**.
+- 🌍 Covers different settings including **multi-domain, multilingual, social context, external evidence / knowledge, fine-grained labels, multi-image, audio-video, and generative AI**.
+- 🧩 Distinguishes between **real-world data, curated real-world data, out-of-context construction, synthetic manipulation, mixed real + synthetic data, and GenAI-diversified data**.
+- 🗂️ `catalog/datasets.yaml` stores the structured metadata, while `datasets/datasets.csv` can be directly used for statistical analysis.
 
 ---
 
-## 🏷️ Scope
+## 🧭 Quick Navigation
 
-### Core fake-news datasets
-
-The `core` group directly supports fake-news or misinformation detection in multimodal, multilingual, social-context, or short-video settings.
-
-Current core entries:
-
-- Fakeddit
-- FakeNewsNet
-- Weibo
-- Weibo21
-- MM-COVID
-- MuMiN
-- FakeSV
-- FakeTT
-- M³A
-
-### Closely related datasets
-
-The `related` group contains datasets that are highly relevant to multimodal fake-news research but focus on adjacent tasks:
-
-- COSMOS — out-of-context misinformation
-- NewsCLIPpings — automatically constructed out-of-context image–caption pairs
-- VERITE — balanced multimodal misinformation verification
-- DGM⁴ — multimodal manipulation detection and grounding
-- FACTIFY — multimodal fact verification
-- FACTIFY 2 — multimodal fact verification and satire
-
----
-## 🌍 Coverage
-
-### Languages
-
-The current catalog covers:
-
-- **English:** Fakeddit, FakeNewsNet, COSMOS, NewsCLIPpings, VERITE, DGM⁴, FACTIFY, FACTIFY 2, FakeTT
-- **Chinese:** Weibo, Weibo21, FakeSV
-- **Multilingual:** MM-COVID (6 languages), MuMiN (41 languages)
-- **Global / release-metadata to verify:** M³A
-
-### Domains
-
-The schema supports multiple domains per dataset, including:
-
-`general`, `politics`, `health`, `covid19`, `science`, `finance`, `technology`, `education`, `entertainment`, `disaster`, `military`, `society`, `news`, `short_video`, and `mixed`.
-
-### Modalities
-
-The catalog distinguishes:
-
-- text
-- image
-- video
-- audio
-- social context
-- metadata
-- external evidence
-- graph / knowledge-graph structure
+- [📚 Core Multimodal Fake News Datasets](#-core-multimodal-fake-news-datasets)
+- [✅ Dataset Feature Comparison](#-dataset-feature-comparison)
+- [🔗 Closely Related Benchmarks](#-closely-related-benchmarks)
+- [📊 Visual Summary](#-visual-summary)
+- [🎯 How to Choose a Dataset](#-how-to-choose-a-dataset)
+- [🔤 Modality Legend](#-modality-legend)
+- [🧱 Dataset Scope](#-dataset-scope)
+- [⚠️ Data Origin](#️-data-origin)
+- [📁 Repository Structure](#-repository-structure)
+- [📎 Dataset Link Policy](#-dataset-link-policy)
 
 ---
 
-## 🔎 Metadata & Provenance
+## 📚 Core Multimodal Fake News Datasets
 
-Each YAML entry records:
+The following datasets directly support fake news, misinformation, rumor, disinformation, fine-grained attribution, or short-video fake news detection.
 
-- original/primary paper;
-- venue and year;
-- official repository/project page;
-- official data-access route;
-- tasks;
-- languages;
-- domains;
-- modalities;
-- label structure;
-- dataset scale **and unit**;
-- collection/annotation notes;
-- access status;
-- license/redistribution status;
-- per-field source URLs;
-- `last_checked`.
+> **Link legend:** `📄` Paper　`💻` Official repository / project page　`📦` Dataset access  
+> To keep the table readable on GitHub, access details and more complete metadata are stored in [`datasets/datasets.csv`](datasets/datasets.csv) and [`catalog/datasets.yaml`](catalog/datasets.yaml).
+
+| Dataset | Year | Language | Main Setting | Modalities | Labels / Task | Scale |
+|---|---:|---|---|---|---|---:|
+| **DeceptionDecoded**<br>[📄](https://github.com/jiayingwu19/DeceptionDecoded) [💻](https://github.com/jiayingwu19/DeceptionDecoded) [📦](https://github.com/jiayingwu19/DeceptionDecoded) | 2026 · ICLR | EN | Creator intent / deception intent | `T+I+R` | Intent-centric multi-task / misleading intent detection | 12,000 |
+| **DriftBench**<br>[📄](https://ojs.aaai.org/index.php/AAAI/article/view/37023) [💻](https://github.com/fanxiao15/DriftBench) [📦](https://github.com/fanxiao15/DriftBench) | 2026 · AAAI | EN | GenAI robustness | `T+I+E` | Truth verification + 6 diversification categories | 16,000 |
+| **FakeVE**<br>[📄](https://doi.org/10.1016/j.ipm.2026.104769) [💻](https://github.com/Lieberk/FakeVE) [📦](https://github.com/Lieberk/FakeVE) | 2026 · IP&M | EN | Video fake news | `V+A+T` | Explainable fake-news video detection | 2,672 |
+| **FineFake**<br>[📄](https://doi.org/10.1016/j.inffus.2026.104253) [💻](https://github.com/Accuser907/FineFake) [📦](https://github.com/Accuser907/FineFake) | 2026 · Information Fusion | EN | Fine-grained / multi-domain | `T+I+S+M+K` | Binary + 6-way fine-grained | 16,909 |
+| **ReMMDBench**<br>[📄](https://arxiv.org/abs/2606.24112) [💻](https://dang-ai.github.io/ReMMD) [📦](https://dang-ai.github.io/ReMMD) | 2026 | Multilingual | Multilingual / multi-image / evidence verification | `T+MI+E` | 5-way veracity + 8 distortion labels | 500 |
+| **VLDBench**<br>[📄](https://doi.org/10.1016/j.inffus.2025.104092) [💻](https://github.com/VectorInstitute/VLDBench) [📦](https://github.com/VectorInstitute/VLDBench) | 2026 · Information Fusion | EN | Multi-category disinformation | `T+I` | 13 benchmark-specific categories | ≈62K |
+| **AMG**<br>[📄](https://ojs.aaai.org/index.php/AAAI/article/view/31999) [💻](https://github.com/mazihan880/AMG-An-Attributing-Multi-modal-Fake-News-Dataset) [📦](https://github.com/mazihan880/AMG-An-Attributing-Multi-modal-Fake-News-Dataset) | 2025 · AAAI | ZH | Fine-grained fake-news attribution | `T+I` | 6-way classification / attribution | 4,922 |
+| **MFND**<br>[📄](https://www.ijcai.org/proceedings/2025/891) [💻](https://github.com/yunan-wang33/sdml) [📦](https://github.com/yunan-wang33/sdml) | 2025 · IJCAI | EN | Multimodal manipulation | `T+I` | 11 manipulation types + localization | — |
+| **MM-Health**<br>[📄](https://aclanthology.org/2025.findings-emnlp.1316/) [💻](https://github.com/grantzyr/MM-Health-Dataset) [📦](https://huggingface.co/datasets/zzha6204/MM-Health) | 2025 · EMNLP Findings | EN | Health misinformation / AI generation | `T+I` | Reliability + originality + fine-grained labels | 34,746 |
+| **MMFakeBench**<br>[📄](https://proceedings.iclr.cc/paper_files/paper/2025/hash/d6c53fe062716387ff0df73cc53de60c-Abstract-Conference.html) [💻](https://github.com/liuxuannan/MMFakeBench) [📦](https://huggingface.co/datasets/liuxuannan/MMFakeBench) | 2025 · ICLR | EN | Mixed-source misinformation | `T+I` | Binary + 3 coarse classes + 12 subtypes | 11,000 |
+| **FakeTT**<br>[📄](https://dl.acm.org/doi/10.1145/3664647.3680663) [💻](https://github.com/ICTMCG/FakingRecipe) [📦](https://github.com/ICTMCG/FakingRecipe) | 2024 · ACM MM | EN | Short-video fake news | `V+A+T` | Binary classification | 1,991 |
+| **M³A**<br>[📄](https://doi.org/10.1016/j.cviu.2024.104205) [💻](https://github.com/FinalYou/M3A) [📦](https://github.com/FinalYou/M3A#data-repository) | 2024 · CVIU | Global | Multimedia authenticity | `T+I+A+V` | Fine-grained / multi-task | — |
+| **FakeSV**<br>[📄](https://ojs.aaai.org/index.php/AAAI/article/view/26689) [💻](https://github.com/ICTMCG/FakeSV) [📦](https://github.com/ICTMCG/FakeSV#application-for-data-use) | 2023 · AAAI | ZH | Short-video fake news | `V+A+T+S+M` | Binary + debunking information | 5,538 |
+| **MR²**<br>[📄](https://doi.org/10.1145/3539618.3591896) [💻](https://github.com/THU-BPM/MR2) [📦](https://github.com/THU-BPM/MR2) | 2023 · SIGIR | EN / ZH | Retrieval-augmented rumor detection | `T+I+S+M+E` | 3-way classification | 14,700 |
+| **MuMiN**<br>[📄](https://dl.acm.org/doi/10.1145/3477495.3531744) [💻](https://github.com/MuMiN-dataset/mumin-build) [📦](https://mumin-dataset.github.io/getting_started/) | 2022 · SIGIR | 41 languages | Multilingual misinformation | `T+I+S+M+G` | Binary classification | 12,914 claims |
+| **CHECKED**<br>[📄](https://pmc.ncbi.nlm.nih.gov/articles/PMC8217979/) [💻](https://github.com/cyang03/CHECKED) [📦](https://github.com/cyang03/CHECKED) | 2021 · SNAM | ZH | COVID-19 / health | `T+I+S+M` | Binary classification | 2,104 |
+| **Weibo21**<br>[📄](https://dl.acm.org/doi/10.1145/3459637.3482139) [💻](https://github.com/kennqiang/MDFEND-Weibo21) [📦](https://github.com/kennqiang/MDFEND-Weibo21) | 2021 · CIKM | ZH | Multi-domain fake news | `T+I+M` | Binary classification | 9,128 |
+| **Fakeddit**<br>[📄](https://aclanthology.org/2020.lrec-1.755/) [💻](https://github.com/entitize/Fakeddit) [📦](https://github.com/entitize/Fakeddit#download) | 2020 · LREC | EN | Social media | `T+I+S+M` | 2 / 3 / 6-way classification | 1,063,106 |
+| **MM-COVID**<br>[📄](https://arxiv.org/abs/2011.04088) [💻](https://github.com/bigheiniu/MM-COVID) [📦](https://zenodo.org/records/4444557) | 2020 · IEEE BigData | 6 languages | COVID-19 / cross-lingual | `T+S+M` | Binary classification | 11,173 |
+| **FakeNewsNet**<br>[📄](https://arxiv.org/abs/1809.01286) [💻](https://github.com/KaiDMML/FakeNewsNet) [📦](https://github.com/KaiDMML/FakeNewsNet/tree/master/dataset) | 2018 | EN | News + social propagation | `T+I+S+M` | Binary classification | — |
+| **Weibo Multimodal Rumor Dataset**<br>[📄](https://doi.org/10.1145/3123266.3123454) [💻](https://github.com/wangzhuang1911/Weibo-dataset) [📦](https://github.com/wangzhuang1911/Weibo-dataset) | 2017 · ACM MM | ZH | Weibo rumor detection | `T+I+S+M` | Binary classification | 9,528 |
 
 ---
 
-## ⚖️ Data & Redistribution Policy
+## ✅ Dataset Feature Comparison
 
-The catalog follows a **link-first** policy.
+This table provides a quick overview of the major differences among the core datasets.  
+`✅` indicates that the feature is an important part of the dataset or an explicitly supported research setting, while `—` means it is not a primary feature.
 
-- Third-party datasets remain subject to their original licenses, terms of use, copyright, platform policies, and access restrictions.
-- An open-source code license does **not** automatically license the underlying dataset.
-- An open-access paper license does **not** automatically license all news text, images, videos, or social-media content inside a dataset.
-- If explicit redistribution permission has not been verified, this repository stores metadata and official links only.
-- Datasets requiring application, registration, API access, or reconstruction are not mirrored to bypass those requirements.
+| Dataset | Multi-domain | Multilingual | Social Context | External Evidence / Knowledge | Fine-grained Labels | Generated / Synthetic Data | Audio-Video / Multi-image |
+|---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| DeceptionDecoded | — | — | — | ✅ | ✅ | ✅ | — |
+| DriftBench | ✅ | — | — | ✅ | ✅ | ✅ | — |
+| FakeVE | ✅ | — | — | — | ✅ | — | ✅ |
+| FineFake | ✅ | — | ✅ | ✅ | ✅ | — | — |
+| ReMMDBench | ✅ | ✅ | — | ✅ | ✅ | — | ✅ |
+| VLDBench | ✅ | — | — | — | ✅ | — | — |
+| AMG | ✅ | — | — | — | ✅ | — | — |
+| MFND | — | — | — | — | ✅ | ✅ | — |
+| MM-Health | — | — | — | — | ✅ | ✅ | — |
+| MMFakeBench | ✅ | — | — | — | ✅ | ✅ | — |
+| FakeTT | ✅ | — | — | — | — | — | ✅ |
+| M³A | ✅ | — | — | — | ✅ | ✅ | ✅ |
+| FakeSV | — | — | ✅ | — | — | — | ✅ |
+| MR² | ✅ | ✅ | ✅ | ✅ | ✅ | — | — |
+| MuMiN | ✅ | ✅ | ✅ | ✅ | — | — | — |
+| CHECKED | — | — | ✅ | — | — | — | — |
+| Weibo21 | ✅ | — | — | — | — | — | — |
+| Fakeddit | — | — | ✅ | — | ✅ | — | — |
+| MM-COVID | — | ✅ | ✅ | — | — | — | — |
+| FakeNewsNet | ✅ | — | ✅ | — | — | — | — |
+| Weibo Multimodal Rumor | — | — | ✅ | — | — | — | — |
 
-See [`DATA_POLICY.md`](DATA_POLICY.md).
+> **Note:** This table is intended as a quick overview and does not replace the complete dataset definitions in the original papers. Some datasets support multiple tasks; more detailed metadata is available in [`catalog/datasets.yaml`](catalog/datasets.yaml).
+
+---
+
+## 🔗 Closely Related Benchmarks
+
+The following datasets are highly relevant to multimodal fake news research but mainly focus on adjacent tasks such as **out-of-context detection, fact-checking, media manipulation localization, or AI-generated content detection**.
+
+| Dataset | Year | Main Focus | Modalities | Labels / Task | Scale |
+|---|---:|---|---|---|---:|
+| **MiRAGeNews**<br>[📄](https://aclanthology.org/2024.findings-emnlp.959/) [💻](https://github.com/nosna/miragenews) [📦](https://huggingface.co/datasets/anson-huang/mirage-news) | 2024 · EMNLP Findings | AI-generated news | `T+I` | Real vs AI-generated | 15,000 |
+| **VERITE**<br>[📄](https://link.springer.com/article/10.1007/s13735-023-00317-5) [💻](https://github.com/stevejpapad/image-text-verification) [📦](https://github.com/stevejpapad/image-text-verification) | 2024 · IJMIR | Out-of-context misinformation | `T+I` | 3-way classification | 1,000 |
+| **COSMOS**<br>[📄](https://ojs.aaai.org/index.php/AAAI/article/view/26739) [💻](https://github.com/shivangi-aneja/COSMOS) [📦](https://github.com/shivangi-aneja/COSMOS#dataset) | 2023 · AAAI | OOC detection | `T+I` | Binary classification | 204,458 images |
+| **DGM⁴**<br>[📄](https://openaccess.thecvf.com/content/CVPR2023/html/Shao_Detecting_and_Grounding_Multi-Modal_Media_Manipulation_CVPR_2023_paper.html) [💻](https://github.com/hsrr/DGM4) [📦](https://github.com/hsrr/DGM4) | 2023 · CVPR | Multimodal media manipulation | `T+I` | Detection + localization | 230,000 |
+| **FACTIFY 2**<br>[📄](https://arxiv.org/abs/2304.03897) [💻](https://github.com/surya1701/Factify-2.0) [📦](https://defactify.com/2023/factify.html) | 2023 | Multimodal fact-checking | `T+I+E` | 5-way classification | 50,000 |
+| **MOCHEG**<br>[📄](https://doi.org/10.1145/3539618.3591879) [💻](https://github.com/VT-NLP/Mocheg) [📦](https://github.com/VT-NLP/Mocheg) | 2023 · SIGIR | Fact-checking + explanation | `T+I+E` | Verification + explanation generation | — |
+| **FACTIFY**<br>[📄](https://www.semanticscholar.org/paper/FACTIFY%3A-A-Multi-Modal-Fact-Verification-Dataset-Mishra-Suryavardan/c0532d8d69af3bc0836b88c5aae2ce6166ac5136) [💻](https://github.com/Shreyashm16/Factify) [📦](https://github.com/Shreyashm16/Factify) | 2022 | Multimodal fact-checking | `T+I+E` | 3-way classification | 50,000 |
+| **NewsCLIPpings**<br>[📄](https://aclanthology.org/2021.emnlp-main.545/) [💻](https://github.com/g-luo/news_clippings) [📦](https://github.com/g-luo/news_clippings#data) | 2021 · EMNLP | OOC image-text mismatch | `T+I` | Binary classification | 988,283 |
+
+---
+
+## 📊 Visual Summary
+
+### 📅 Datasets by Publication Year
+
+![Datasets by year](analysis/datasets_by_year.png)
+
+### 🧩 Modality Coverage
+
+![Modality coverage](analysis/modalities.png)
+
+### 📚 Core / Related Distribution
+
+![Catalog scope](analysis/scope.png)
+
+### 🔍 Research Category Distribution
+
+![Research categories](analysis/categories.png)
+
+---
+
+## 🎯 How to Choose a Dataset
+
+| Research Direction | Recommended Datasets |
+|---|---|
+| 🖼️ Classic image-text fake news detection | **Fakeddit, Weibo, Weibo21** |
+| 🌐 Social propagation / social context | **FakeNewsNet, MuMiN, CHECKED, MR²** |
+| 🔬 Fine-grained fake type / attribution | **FineFake, AMG, MMFakeBench, MFND** |
+| 🧭 Multi-domain generalization | **FineFake, Weibo21, M³A, VLDBench** |
+| 🧩 Out-of-context image-text misinformation | **COSMOS, NewsCLIPpings, VERITE** |
+| 🔎 External evidence / retrieval-augmented verification | **MR², MOCHEG, FACTIFY, FineFake, ReMMDBench** |
+| 🤖 Robustness in the GenAI era | **MMFakeBench, MM-Health, VLDBench, DriftBench, DeceptionDecoded** |
+| ✨ AI-generated multimodal news | **MiRAGeNews, MM-Health** |
+| 🎬 Short-video fake news | **FakeSV, FakeTT, FakeVE** |
+| 🌍 Multilingual / cross-lingual | **MM-COVID, MuMiN, MR², ReMMDBench** |
+| 🖼️🖼️ Multi-image verification | **ReMMDBench** |
+
+---
+
+## 🔤 Modality Legend
+
+| Abbreviation | Meaning | Abbreviation | Meaning |
+|:---:|---|:---:|---|
+| `T` | Text | `I` | Image |
+| `MI` | Multiple Images | `V` | Video |
+| `A` | Audio | `S` | Social Context |
+| `M` | Metadata | `E` | External Evidence |
+| `K` | External Knowledge | `G` | Knowledge Graph |
+| `R` | Reference Article |  |  |
+
+---
+
+## 🧱 Dataset Scope
+
+### 📌 Core
+
+Datasets directly designed for **multimodal fake news / misinformation / rumor / disinformation detection**, including:
+
+- Image-text fake news detection
+- Multi-domain / multilingual detection
+- Fine-grained fake type and attribution
+- Social-context modeling
+- Short-video fake news detection
+- Fake-news detection and robustness evaluation in GenAI settings
+
+### 🔗 Related
+
+Datasets that are highly relevant to multimodal fake news research but mainly target adjacent tasks, such as:
+
+- Out-of-Context (OOC) detection
+- Multimodal fact-checking
+- Media manipulation detection and localization
+- AI-generated news detection
+- Evidence retrieval and explanation generation
+
+Separating these two groups makes it easier to distinguish their research objectives and evaluation settings.
+
+---
+
+## ⚠️ Data Origin
+
+The way "fake" or misleading content is created varies substantially across datasets. This distinction is important when comparing model performance.
+
+| Type | Description |
+|---|---|
+| `real_world` | Naturally occurring misinformation from news websites, social media, or short-video platforms |
+| `real_world_curated` | Real-world samples that are selected, curated, or manually verified for benchmark construction |
+| `synthetic_pairing` | Real images, captions, or text are recombined to create out-of-context samples |
+| `synthetic_manipulation` | Images or text are modified through controlled manipulation |
+| `mixed_real_and_synthetic` | Combines real-world data with generated or manipulated samples |
+| `genai_diversified` | Uses generative AI to rewrite, diversify, or regenerate news content |
+
+> When comparing results across datasets, it is useful to consider **data origin, task definition, label granularity, and modality settings**, rather than comparing accuracy alone.
+
+---
+
+## 📁 Repository Structure
+
+```text
+.
+├── README.md
+├── CONTRIBUTING.md
+├── CITATION.cff
+├── requirements.txt
+├── catalog/
+│   └── datasets.yaml
+├── datasets/
+│   └── datasets.csv
+├── analysis/
+│   ├── summary.json
+│   ├── datasets_by_year.png
+│   ├── modalities.png
+│   ├── scope.png
+│   └── categories.png
+├── docs/
+│   ├── METADATA_SCHEMA.md
+│   └── SOURCES.md
+└── scripts/
+    └── build_assets.py
+```
+
+---
+
+## 📎 Dataset Link Policy
+
+This repository is mainly used to **collect and summarize dataset papers, official repositories, and dataset access links**. Original dataset files are not re-uploaded or redistributed here.
+
+For download procedures, application requirements, and usage restrictions, please refer to the official page of each dataset.
+
+---
+
+## ⭐ Acknowledgement
+
+If you find this dataset collection useful for your research, a **Star ⭐** would be greatly appreciated.
