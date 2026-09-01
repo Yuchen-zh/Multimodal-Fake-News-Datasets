@@ -2,9 +2,9 @@
 
 > A research-oriented collection of **multimodal fake news / misinformation / rumor / disinformation / fact-checking / out-of-context / media manipulation / AI-generated news datasets**.
 
-[![Datasets](https://img.shields.io/badge/Datasets-29-informational)](datasets/datasets.csv)
+[![Datasets](https://img.shields.io/badge/Datasets-31-informational)](datasets/datasets.csv)
 [![Core](https://img.shields.io/badge/Core-21-success)](#-core-multimodal-fake-news-datasets)
-[![Related](https://img.shields.io/badge/Related-8-blueviolet)](#-closely-related-benchmarks)
+[![Related](https://img.shields.io/badge/Related-10-blueviolet)](#-closely-related-benchmarks)
 [![Last checked](https://img.shields.io/badge/Last%20checked-2026--08--31-success)](catalog/datasets.yaml)
 
 This repository is mainly intended for research on **Multimodal Fake News Detection (MFND/MMD)** and related topics. It collects **papers, official repositories, dataset access links, and key metadata such as task, modality, language, domain, label type, and data origin**, making it easier to discover, compare, and select suitable datasets.
@@ -13,7 +13,7 @@ This repository is mainly intended for research on **Multimodal Fake News Detect
 
 ## ✨ Highlights
 
-- 📚 Currently includes **29 datasets / benchmarks**: **21 core datasets + 8 closely related datasets**.
+- 📚 Currently includes **31 datasets / benchmarks**: **21 core datasets + 10 closely related datasets**.
 - 🕰️ Covers classic datasets such as **Fakeddit, FakeNewsNet, Weibo, Weibo21, MuMiN, and FakeSV**.
 - 🚀 Continuously includes recent datasets and benchmarks such as **FineFake, AMG, MMFakeBench, MFND, MM-Health, VLDBench, DriftBench, DeceptionDecoded, ReMMDBench, and FakeVE**.
 - 🌍 Covers different settings including **multi-domain, multilingual, social context, external evidence / knowledge, fine-grained labels, multi-image, audio-video, and generative AI**.
@@ -112,11 +112,13 @@ The following datasets are highly relevant to multimodal fake news research but 
 | **MiRAGeNews**<br>[📄](https://aclanthology.org/2024.findings-emnlp.959/) [💻](https://github.com/nosna/miragenews) [📦](https://huggingface.co/datasets/anson-huang/mirage-news) | 2024 · EMNLP Findings | AI-generated news | `T+I` | Real vs AI-generated | 15,000 |
 | **VERITE**<br>[📄](https://link.springer.com/article/10.1007/s13735-023-00317-5) [💻](https://github.com/stevejpapad/image-text-verification) [📦](https://github.com/stevejpapad/image-text-verification) | 2024 · IJMIR | Out-of-context misinformation | `T+I` | 3-way classification | 1,000 |
 | **COSMOS**<br>[📄](https://ojs.aaai.org/index.php/AAAI/article/view/26739) [💻](https://github.com/shivangi-aneja/COSMOS) [📦](https://github.com/shivangi-aneja/COSMOS#dataset) | 2023 · AAAI | OOC detection | `T+I` | Binary classification | 204,458 images |
-| **DGM⁴**<br>[📄](https://openaccess.thecvf.com/content/CVPR2023/html/Shao_Detecting_and_Grounding_Multi-Modal_Media_Manipulation_CVPR_2023_paper.html) [💻](https://github.com/hsrr/DGM4) [📦](https://github.com/hsrr/DGM4) | 2023 · CVPR | Multimodal media manipulation | `T+I` | Detection + localization | 230,000 |
+| **DGM⁴**<br>[📄](https://openaccess.thecvf.com/content/CVPR2023/html/Shao_Detecting_and_Grounding_Multi-Modal_Media_Manipulation_CVPR_2023_paper.html) [💻](https://github.com/rshaojimmy/MultiModal-DeepFake) [📦](https://huggingface.co/datasets/rshaojimmy/DGM4) | 2023 · CVPR | Multimodal media manipulation | `T+I` | Detection + manipulation-type classification + image/text grounding | 230,000 |
 | **FACTIFY 2**<br>[📄](https://arxiv.org/abs/2304.03897) [💻](https://github.com/surya1701/Factify-2.0) [📦](https://defactify.com/2023/factify.html) | 2023 | Multimodal fact-checking | `T+I+E` | 5-way classification | 50,000 |
 | **MOCHEG**<br>[📄](https://doi.org/10.1145/3539618.3591879) [💻](https://github.com/VT-NLP/Mocheg) [📦](https://github.com/VT-NLP/Mocheg) | 2023 · SIGIR | Fact-checking + explanation | `T+I+E` | Verification + explanation generation | — |
 | **FACTIFY**<br>[📄](https://www.semanticscholar.org/paper/FACTIFY%3A-A-Multi-Modal-Fact-Verification-Dataset-Mishra-Suryavardan/c0532d8d69af3bc0836b88c5aae2ce6166ac5136) [💻](https://github.com/Shreyashm16/Factify) [📦](https://github.com/Shreyashm16/Factify) | 2022 | Multimodal fact-checking | `T+I+E` | 3-way classification | 50,000 |
 | **NewsCLIPpings**<br>[📄](https://aclanthology.org/2021.emnlp-main.545/) [💻](https://github.com/g-luo/news_clippings) [📦](https://github.com/g-luo/news_clippings#data) | 2021 · EMNLP | OOC image-text mismatch | `T+I` | Binary classification | 988,283 |
+| **VisualNews**<br>[📄](https://aclanthology.org/2021.emnlp-main.235/) [💻](https://github.com/FuxiaoLiu/VisualNews-Repository) [📦](https://www.cs.rice.edu/~vo9/visualnews/) | 2021 · EMNLP | Real news image-caption corpus | `T+I+M` | News image captioning / image-text source corpus | 1,080,595 images |
+| **NYTimes800k**<br>[📄](https://arxiv.org/abs/2004.08070) [💻](https://github.com/alasdairtran/transform-and-tell) [📦](https://github.com/alasdairtran/transform-and-tell#getting-data) | 2020 · CVPR | Real NYT image-caption corpus | `T+I+M` | News image captioning / image-text source corpus | 792,971 images |
 
 ---
 
@@ -149,6 +151,8 @@ The following datasets are highly relevant to multimodal fake news research but 
 | 🔬 Fine-grained fake type / attribution | **FineFake, AMG, MMFakeBench, MFND** |
 | 🧭 Multi-domain generalization | **FineFake, Weibo21, M³A, VLDBench** |
 | 🧩 Out-of-context image-text misinformation | **COSMOS, NewsCLIPpings, VERITE** |
+| 🛠️ Image/text manipulation detection and grounding | **DGM⁴, MFND** |
+| 📰 Real news image-text source corpora / news captioning | **VisualNews, NYTimes800k** |
 | 🔎 External evidence / retrieval-augmented verification | **MR², MOCHEG, FACTIFY, FineFake, ReMMDBench** |
 | 🤖 Robustness in the GenAI era | **MMFakeBench, MM-Health, VLDBench, DriftBench, DeceptionDecoded** |
 | ✨ AI-generated multimodal news | **MiRAGeNews, MM-Health** |
