@@ -7,7 +7,7 @@
 [![Related](https://img.shields.io/badge/Related-8-blueviolet)](#-closely-related-benchmarks)
 [![Last checked](https://img.shields.io/badge/Last%20checked-2026--08--31-success)](catalog/datasets.yaml)
 
-This repository is mainly intended for research on **Multimodal Fake News Detection (MFND/MMD)** and related topics. It collects **papers, official repositories, dataset access links, and key metadata such as task, modality, language, domain, label type, and data origin**, making it easier to discover, compare, and select suitable datasets.
+This collection supports research on **Multimodal Fake News Detection (MFND/MMD)** and related topics. It brings together **papers, official repositories, dataset access links, and structured metadata**—including task, modality, language, domain, label type, and data origin—to make dataset discovery and comparison faster.
 
 ---
 
@@ -19,6 +19,20 @@ This repository is mainly intended for research on **Multimodal Fake News Detect
 - 🌍 Covers different settings including **multi-domain, multilingual, social context, external evidence / knowledge, fine-grained labels, multi-image, audio-video, and generative AI**.
 - 🧩 Distinguishes between **real-world data, curated real-world data, out-of-context construction, synthetic manipulation, mixed real + synthetic data, and GenAI-diversified data**.
 - 🗂️ `catalog/datasets.yaml` stores the structured metadata, while `datasets/datasets.csv` can be directly used for statistical analysis.
+
+---
+
+## 🗺️ Start Here
+
+| If you want to… | Start with… |
+|---|---|
+| Compare the main fake-news datasets | [Core dataset catalog](#-core-multimodal-fake-news-datasets) |
+| Filter candidates by research capability | [Dataset feature comparison](#-dataset-feature-comparison) |
+| Explore adjacent fact-checking and manipulation benchmarks | [Closely related benchmarks](#-closely-related-benchmarks) |
+| Choose data for a specific research question | [Dataset recommendations](#-how-to-choose-a-dataset) |
+| Reuse the catalog programmatically | [`catalog/datasets.yaml`](catalog/datasets.yaml) and [`datasets/datasets.csv`](datasets/datasets.csv) |
+
+> **Reading tip:** Use the core catalog for datasets whose primary task is misinformation detection. Use the related catalog when studying a neighboring task such as out-of-context detection, fact-checking, or media-manipulation localization.
 
 ---
 
@@ -39,9 +53,9 @@ This repository is mainly intended for research on **Multimodal Fake News Detect
 
 ## 📚 Core Multimodal Fake News Datasets
 
-The following datasets directly support fake news, misinformation, rumor, disinformation, fine-grained attribution, or short-video fake news detection.
+The following datasets directly support fake news, misinformation, rumor, disinformation, fine-grained attribution, or short-video fake-news detection.
 
-> **Link legend:** `📄` Paper　`💻` Official repository / project page　`📦` Dataset access  
+> **Link legend:** `📄` paper · `💻` official repository or project page · `📦` dataset access
 > To keep the table readable on GitHub, access details and more complete metadata are stored in [`datasets/datasets.csv`](datasets/datasets.csv) and [`catalog/datasets.yaml`](catalog/datasets.yaml).
 
 | Dataset | Year | Language | Main Setting | Modalities | Labels / Task | Scale |
@@ -72,7 +86,7 @@ The following datasets directly support fake news, misinformation, rumor, disinf
 
 ## ✅ Dataset Feature Comparison
 
-This table provides a quick overview of the major differences among the core datasets.  
+This table provides a quick overview of the major differences among the core datasets.
 `✅` indicates that the feature is an important part of the dataset or an explicitly supported research setting, while `—` means it is not a primary feature.
 
 | Dataset | Multi-domain | Multilingual | Social Context | External Evidence / Knowledge | Fine-grained Labels | Generated / Synthetic Data | Audio-Video / Multi-image |
@@ -105,7 +119,7 @@ This table provides a quick overview of the major differences among the core dat
 
 ## 🔗 Closely Related Benchmarks
 
-The following datasets are highly relevant to multimodal fake news research but mainly focus on adjacent tasks such as **out-of-context detection, fact-checking, media manipulation localization, or AI-generated content detection**.
+The following datasets are highly relevant to multimodal fake-news research but mainly focus on adjacent tasks, such as **out-of-context detection, fact-checking, media-manipulation localization, or AI-generated-content detection**.
 
 | Dataset | Year | Main Focus | Modalities | Labels / Task | Scale |
 |---|---:|---|---|---|---:|
@@ -121,6 +135,8 @@ The following datasets are highly relevant to multimodal fake news research but 
 ---
 
 ## 📊 Visual Summary
+
+These figures summarize the full catalog and complement, rather than replace, the dataset-level metadata above.
 
 ### 📅 Datasets by Publication Year
 
@@ -141,6 +157,8 @@ The following datasets are highly relevant to multimodal fake news research but 
 ---
 
 ## 🎯 How to Choose a Dataset
+
+Use this table as a first-pass shortlist, then verify licensing, access requirements, and task definitions on each dataset's official page.
 
 | Research Direction | Recommended Datasets |
 |---|---|
@@ -211,7 +229,7 @@ The way "fake" or misleading content is created varies substantially across data
 | `mixed_real_and_synthetic` | Combines real-world data with generated or manipulated samples |
 | `genai_diversified` | Uses generative AI to rewrite, diversify, or regenerate news content |
 
-> When comparing results across datasets, it is useful to consider **data origin, task definition, label granularity, and modality settings**, rather than comparing accuracy alone.
+> When comparing results across datasets, consider **data origin, task definition, label granularity, and modality settings** rather than accuracy alone.
 
 ---
 
@@ -252,4 +270,4 @@ For download procedures, application requirements, and usage restrictions, pleas
 
 ## ⭐ Acknowledgement
 
-If you find this dataset collection useful for your research, a **Star ⭐** would be greatly appreciated.
+If this collection is useful for your research, a **Star ⭐** is greatly appreciated.
