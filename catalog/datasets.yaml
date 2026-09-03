@@ -1097,3 +1097,80 @@
   paper:
     title: 'Multimodal fake news video explanation: Dataset, model and evaluation'
     venue: Information Processing & Management
+- id: rom
+  name: ROM
+  scope: related
+  category: media_manipulation
+  year: 2026
+  language:
+  - en
+  domain:
+  - news
+  - cross_domain
+  platform:
+  - nytimes
+  - guardian
+  - bbc
+  - usa_today
+  - washington_post
+  modalities:
+  - text
+  - image
+  - forensic_rationale
+  tasks:
+  - manipulation_detection
+  - manipulation_grounding
+  - forensic_reasoning
+  label_type: binary + fine-grained manipulation + grounding
+  size_total: 704456
+  size_unit: image_text_pair
+  data_origin: synthetic_manipulation
+  access: modelscope
+  license: dataset terms / data-use agreement
+  note: Reasoning-enhanced benchmark with detailed forensic rationales across five news domains; includes face- and scene-level manipulations.
+  last_checked: '2026-09-03'
+  links:
+    paper: https://aclanthology.org/2026.acl-long.1316/
+    official_repository: https://github.com/YcZhangSing/REFORM
+    official_download: https://www.modelscope.cn/datasets/YcZhangSing/ROM
+  paper:
+    title: 'Cultivating Forensic Reasoning for Generalizable Multimodal Manipulation Detection'
+    venue: ACL
+- id: mdsm
+  name: MDSM
+  scope: related
+  category: media_manipulation
+  year: 2026
+  language:
+  - en
+  domain:
+  - news
+  - cross_domain
+  platform:
+  - nytimes
+  - guardian
+  - bbc
+  - usa_today
+  - washington_post
+  modalities:
+  - text
+  - image
+  tasks:
+  - manipulation_detection
+  - manipulation_type_detection
+  - manipulation_grounding
+  label_type: binary + 5 manipulation types + grounding
+  size_total: 441423
+  size_unit: image_text_pair
+  data_origin: synthetic_manipulation
+  access: modelscope
+  license: verify dataset terms
+  note: MLLM-driven, semantically aligned multimodal manipulation benchmark with high-fidelity fabricated narratives.
+  last_checked: '2026-09-03'
+  links:
+    paper: https://openaccess.thecvf.com/content/CVPR2026/html/Zhang_The_Coherence_Trap_When_MLLM-Crafted_Narratives_Exploit_Manipulated_Visual_Contexts_CVPR_2026_paper.html
+    official_repository: https://github.com/YcZhangSing/AMD
+    official_download: https://www.modelscope.cn/datasets/YcZhangSing/MDSM
+  paper:
+    title: 'The Coherence Trap: When MLLM-Crafted Narratives Exploit Manipulated Visual Contexts'
+    venue: CVPR

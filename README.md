@@ -2,10 +2,10 @@
 
 > A research-oriented collection of **multimodal fake news / misinformation / rumor / disinformation / fact-checking / out-of-context / media manipulation / AI-generated news datasets**.
 
-[![Datasets](https://img.shields.io/badge/Datasets-31-informational)](datasets/datasets.csv)
+[![Datasets](https://img.shields.io/badge/Datasets-33-informational)](datasets/datasets.csv)
 [![Core](https://img.shields.io/badge/Core-21-success)](#-core-multimodal-fake-news-datasets)
-[![Related](https://img.shields.io/badge/Related-10-blueviolet)](#-closely-related-benchmarks)
-[![Last checked](https://img.shields.io/badge/Last%20checked-2026--08--31-success)](catalog/datasets.yaml)
+[![Related](https://img.shields.io/badge/Related-12-blueviolet)](#-closely-related-benchmarks)
+[![Last checked](https://img.shields.io/badge/Last%20checked-2026--09--03-success)](catalog/datasets.yaml)
 
 This collection supports research on **Multimodal Fake News Detection (MFND/MMD)** and related topics. It brings together **papers, official repositories, dataset access links, and structured metadata**—including task, modality, language, domain, label type, and data origin—to make dataset discovery and comparison faster.
 
@@ -13,9 +13,9 @@ This collection supports research on **Multimodal Fake News Detection (MFND/MMD)
 
 ## ✨ Highlights
 
-- 📚 Currently includes **31 datasets / benchmarks**: **21 core datasets + 10 closely related datasets**.
+- 📚 Currently includes **33 datasets / benchmarks**: **21 core datasets + 12 closely related datasets**.
 - 🕰️ Covers classic datasets such as **Fakeddit, FakeNewsNet, Weibo, Weibo21, MuMiN, and FakeSV**.
-- 🚀 Continuously includes recent datasets and benchmarks such as **FineFake, AMG, MMFakeBench, MFND, MM-Health, VLDBench, DriftBench, DeceptionDecoded, ReMMDBench, and FakeVE**.
+- 🚀 Continuously includes recent datasets and benchmarks such as **ROM, MDSM, FineFake, AMG, MMFakeBench, MFND, MM-Health, VLDBench, DriftBench, DeceptionDecoded, ReMMDBench, and FakeVE**.
 - 🌍 Covers different settings including **multi-domain, multilingual, social context, external evidence / knowledge, fine-grained labels, multi-image, audio-video, and generative AI**.
 - 🧩 Distinguishes between **real-world data, curated real-world data, out-of-context construction, synthetic manipulation, mixed real + synthetic data, and GenAI-diversified data**.
 - 🗂️ `catalog/datasets.yaml` stores the structured metadata, while `datasets/datasets.csv` can be directly used for statistical analysis.
@@ -123,6 +123,8 @@ The following datasets are highly relevant to multimodal fake-news research but 
 
 | Dataset | Year | Main Focus | Modalities | Labels / Task | Scale |
 |---|---:|---|---|---|---:|
+| **ROM**<br>[📄](https://aclanthology.org/2026.acl-long.1316/) [💻](https://github.com/YcZhangSing/REFORM) [📦](https://www.modelscope.cn/datasets/YcZhangSing/ROM) | 2026 · ACL | Reasoning-enhanced multimodal manipulation | `T+I+FR` | Detection + manipulation grounding + forensic reasoning | 704,456 |
+| **MDSM**<br>[📄](https://openaccess.thecvf.com/content/CVPR2026/html/Zhang_The_Coherence_Trap_When_MLLM-Crafted_Narratives_Exploit_Manipulated_Visual_Contexts_CVPR_2026_paper.html) [💻](https://github.com/YcZhangSing/AMD) [📦](https://www.modelscope.cn/datasets/YcZhangSing/MDSM) | 2026 · CVPR | MLLM-driven semantic-aligned manipulation | `T+I` | Detection + 5 manipulation types + image grounding | 441,423 |
 | **MiRAGeNews**<br>[📄](https://aclanthology.org/2024.findings-emnlp.959/) [💻](https://github.com/nosna/miragenews) [📦](https://huggingface.co/datasets/anson-huang/mirage-news) | 2024 · EMNLP Findings | AI-generated news | `T+I` | Real vs AI-generated | 15,000 |
 | **VERITE**<br>[📄](https://link.springer.com/article/10.1007/s13735-023-00317-5) [💻](https://github.com/stevejpapad/image-text-verification) [📦](https://github.com/stevejpapad/image-text-verification) | 2024 · IJMIR | Out-of-context misinformation | `T+I` | 3-way classification | 1,000 |
 | **COSMOS**<br>[📄](https://ojs.aaai.org/index.php/AAAI/article/view/26739) [💻](https://github.com/shivangi-aneja/COSMOS) [📦](https://github.com/shivangi-aneja/COSMOS#dataset) | 2023 · AAAI | OOC detection | `T+I` | Binary classification | 204,458 images |
@@ -169,7 +171,7 @@ Use this table as a first-pass shortlist, then verify licensing, access requirem
 | 🔬 Fine-grained fake type / attribution | **FineFake, AMG, MMFakeBench, MFND** |
 | 🧭 Multi-domain generalization | **FineFake, Weibo21, M³A, VLDBench** |
 | 🧩 Out-of-context image-text misinformation | **COSMOS, NewsCLIPpings, VERITE** |
-| 🛠️ Image/text manipulation detection and grounding | **DGM⁴, MFND** |
+| 🛠️ Image/text manipulation detection and grounding | **ROM, MDSM, DGM⁴, MFND** |
 | 📰 Real news image-text source corpora / news captioning | **VisualNews, NYTimes800k** |
 | 🔎 External evidence / retrieval-augmented verification | **MR², MOCHEG, FACTIFY, FineFake, ReMMDBench** |
 | 🤖 Robustness in the GenAI era | **MMFakeBench, MM-Health, VLDBench, DriftBench, DeceptionDecoded** |
@@ -189,7 +191,7 @@ Use this table as a first-pass shortlist, then verify licensing, access requirem
 | `A` | Audio | `S` | Social Context |
 | `M` | Metadata | `E` | External Evidence |
 | `K` | External Knowledge | `G` | Knowledge Graph |
-| `R` | Reference Article |  |  |
+| `R` | Reference Article | `FR` | Forensic Rationale |
 
 ---
 
