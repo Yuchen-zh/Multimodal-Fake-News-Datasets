@@ -1,7 +1,7 @@
 {
-  "dataset_count": 31,
+  "dataset_count": 33,
   "core_count": 21,
-  "related_count": 10,
+  "related_count": 12,
   "years": {
     "2017": 1,
     "2018": 1,
@@ -11,23 +11,24 @@
     "2023": 6,
     "2024": 4,
     "2025": 4,
-    "2026": 6
+    "2026": 8
   },
   "modalities": {
-    "text": 31,
-    "image": 26,
+    "text": 33,
+    "image": 28,
     "metadata": 12,
     "social_context": 9,
     "external_evidence": 6,
     "audio": 4,
     "video": 4,
     "external_knowledge": 1,
+    "forensic_rationale": 1,
     "knowledge_graph": 1,
     "multiple_images": 1,
     "reference_article": 1
   },
   "languages": {
-    "en": 23,
+    "en": 25,
     "zh": 6,
     "2_cross_lingual_settings": 1,
     "5_monolingual_languages": 1,
@@ -41,6 +42,7 @@
   },
   "categories": {
     "health_misinformation": 3,
+    "media_manipulation": 3,
     "multimodal_fact_checking": 3,
     "out_of_context": 3,
     "video_fake_news": 3,
@@ -53,7 +55,6 @@
     "fine_grained_attribution": 1,
     "fine_grained_multi_domain": 1,
     "genai_robustness": 1,
-    "media_manipulation": 1,
     "mixed_media_authenticity": 1,
     "mixed_source_misinformation": 1,
     "multi_domain_fake_news": 1,
